@@ -87,9 +87,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 }, {
-
     threshold: 0.2
-
 });
 
 cards.forEach(card => observer.observe(card));
