@@ -5,7 +5,12 @@
     font-family: "Poppins", sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
+    position: relative;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -21,7 +26,9 @@ body {
 /* BACKGROUND GLOW */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed;
+    inset: auto;
+    z-index: -1;
     width: 700px;
     height: 700px;
     background:
@@ -44,6 +51,7 @@ body::before {
     width: clamp(280px, 90vw, 600px);
     aspect-ratio: 3 / 4;
     transform-style: preserve-3d;
+    z-index: 1;
 }
 
 /* SHADOW */
@@ -185,6 +193,7 @@ body::before {
     box-shadow:
         0 0 45px rgba(99, 102, 241, .6);
     animation: pulse 3s infinite;
+    margin-inline: auto;
 }
 
 @keyframes pulse {
@@ -248,6 +257,7 @@ h2 {
     font-size: clamp(.8rem, 1vw, .95rem);
     border: 1px solid rgba(255, 255, 255, .08);
     transition: .4s;
+    font-weight: 600;
 }
 
 .skill:hover {
@@ -267,11 +277,10 @@ h2 {
 .card {
     padding: 20px;
     border-radius: 16px;
-    background: rgb(243, 240, 240);
-    transition: .4s;
-    box-shadow:
-        0 10px 20px rgba(0, 0, 0, .08);
-    color: #020617
+    background: white;
+    color: #020617;
+    font-weight: 600;
+    transition: .35s;
 }
 
 .card:hover {
@@ -349,73 +358,6 @@ h2 {
     color: white;
 }
 
-/* MOBILE */
-@media(max-width:768px) {
-
-    body {
-        padding: 15px;
-    }
-
-    .book {
-        width: 95vwpx;
-        max-width: 350px;
-    }
-
-    .content {
-        padding: 20px;
-    }
-
-    .title {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-    }
-
-    .role {
-        font-size: 15px;
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    .back h2 {
-        font-size: 1.7rem;
-    }
-
-    .profile {
-        width: 85px;
-        height: 85px;
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-
-    .desc {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .skill {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-    .card {
-        padding: 15px;
-        font-size: 14px;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 14px;
-    }
-
-    .modal-content {
-        width: 90%;
-        padding: 20px;
-    }
-}
-
 .modal {
     position: fixed;
     inset: 0;
@@ -479,4 +421,179 @@ h2 {
     background: #38bdf8;
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(56, 189, 248, .35);
+}
+
+/* ==========================
+   DESKTOP / MOBILE LAYOUT
+========================== */
+
+.desktop-layout {
+    display: block;
+}
+
+.mobile-layout {
+    display: none;
+}
+
+.mobile-card {
+    scroll-snap-align: start;
+    background: linear-gradient(145deg, #111827, #1e293b);
+    border-radius: 24px;
+    padding: 35px 25px;
+    color: white;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
+    border: 1px solid rgba(255, 255, 255, .06);
+    transition: .35s;
+}
+
+.mobile-card h2 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.mobile-card p {
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.mobile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .45);
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px) {
+
+    body {
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll-snap-type: y proximity;
+    }
+
+    .desktop-layout {
+        display: none;
+    }
+
+    .mobile-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        width: min(500px, 100%);
+        margin: auto;
+        padding-bottom: 40px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+}
+
+/* ==========================
+   SCROLL REVEAL ANIMATION
+========================== */
+
+.mobile-card {
+    scroll-snap-align: start;
+    opacity: 0;
+    transform: translateY(60px) scale(.96);
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.mobile-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* ==========================
+   MOBILE CARD DESIGN
+========================== */
+
+.mobile-card {
+    scroll-snap-align: start;
+    background: rgba(17, 24, 39, .75);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 25px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+    animation: fadeUp .8s ease both;
+}
+
+.mobile-card h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.mobile-card h2 {
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+.mobile-card p {
+    line-height: 1.8;
+    color: #d1d5db;
+}
+
+.mobile-card .projects {
+    margin-top: 20px;
+}
+
+.mobile-card .card {
+    background: #0f172a;
+    color: white;
+}
+
+.mobile-card .btn {
+    margin-top: 25px;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==========================
+   MOBILE ANIMATION
+========================== */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
 }
