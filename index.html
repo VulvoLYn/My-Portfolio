@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mark Joshua Sanchez</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<link rel="stylesheet" href="Portfolio.css">
+
+<body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="book">
+
+        <div class="book-shadow"></div>
+
+        <!-- PAGE 1 -->
+        <div class="page">
+
+            <div class="front">
+                <div class="glass"></div>
+                <div class="content">
+                    <div class="profile">
+                        MJ
+                    </div>
+                    <div class="title">
+                        Mark Joshua Sanchez
+                    </div>
+                    <div class="role">
+                        Computer Science Student
+                    </div>
+                    <div class="desc">
+                        Aspiring Full Stack Developer passionate about creating responsive web applications and solving
+                        real-world problems through technology.
+                    </div>
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="content">
+
+                    <h2>About Me</h2>
+
+                    <p class="desc" style="color:#334155;">
+                        Computer Science student with a passion for building innovative software and modern web
+                        applications. Aspiring to become a Full Stack Developer and Software Engineer, committed to
+                        continuous learning, clean code, and creating technology that makes a meaningful impact.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="page">
+
+            <div class="front">
+                <div class="content">
+
+                    <h2>Skills</h2>
+
+                    <div class="skills">
+
+                        <div class="skill">HTML5</div>
+                        <div class="skill">CSS3</div>
+                        <div class="skill">JavaScript</div>
+                        <div class="skill">Python</div>
+                        <div class="skill">Java</div>
+                        <div class="skill">MySQL</div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="content">
+
+                    <h2>Experience</h2>
+
+                    <p class="desc" style="color:#334155;">
+                        Developing responsive web applications and academic projects while continuously learning modern
+                        technologies, software engineering principles, and best coding practices.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="page">
+
+            <div class="front">
+                <div class="content">
+
+                    <h2>Projects</h2>
+
+                    <div class="projects">
+
+                        <div class="card">
+                            Inventory System
+                        </div>
+
+                        <div class="card">
+                            Luxury Dashboard UI
+                        </div>
+
+                        <div class="card">
+                            Interactive Landing Page
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="back">
+                <div class="content">
+
+                    <h2>Achievements</h2>
+
+                    <p class="desc" style="color:#334155;">
+                        Continuously expanding my knowledge by completing academic and personal projects while improving
+                        my skills in web development, programming, and software design.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PAGE 4 -->
+        <div class="page">
+
+            <div class="front">
+                <div class="content">
+
+                    <h2>Contact</h2>
+
+                    <p class="desc">
+                        I'm always open to internship opportunities, entry-level roles, and collaborations. Feel free to
+                        reach out—I'd be happy to connect and discuss how we can work together.
+                    </p>
+
+                    <button class="btn" id="openModal">
+                        Get In Touch
+                    </button>
+
+                </div>
+            </div>
+            <div class="back final">
+                <div class="content">
+
+                    <h2>Thank You</h2>
+
+                    <p class="desc">
+                        Thank you for exploring my portfolio. Your time and interest are truly appreciated. I look
+                        forward to connecting, collaborating, and growing as a future Full Stack Developer.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="modal" id="contactModal">
+
+        <div class="modal-content">
+
+            <span class="close">&times;</span>
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                Thank you for visiting my portfolio.
+                Feel free to reach out through any of the platforms below.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=markjoshuasanchez23@gmail.com&su=Portfolio%20Inquiry"
+                    target="_blank">
+                    📧 Email
+                </a>
+
+                <a href="https://www.facebook.com/markjoshua.sanchez.906" target="_blank">
+                    <i class="fa-brands fa-facebook-messenger"></i>
+                    Messenger
+                </a>
+
+                <a href="https://www.facebook.com/markjoshua.sanchez.906" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    Facebook
+                </a>
+
+                <a href="Resume.pdf" download>
+                    📄 Download Resume
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll(".page");
+        let isAnimating = false; // Prevents click spamming
+
+        pages.forEach((page, index) => {
+            let flipped = false;
+
+            // Set initial layout stacking
+            page.style.zIndex = pages.length - index;
+
+            /* CLICK FUNCTION */
+            page.addEventListener("click", (e) => {
+                // Stop click tracking if a page is currently moving
+                if (e.target.closest(".btn")) return;
+                if (isAnimating) return;
+                isAnimating = true;
+
+                /* FLIP FORWARD (Left to Right) */
+                if (!flipped) {
+                    page.style.transform = "rotateY(-180deg)";
+                    flipped = true;
+
+                    // Wait until the flip finishes to lower the z-index
+                    const resetForwardZ = () => {
+                        page.style.zIndex = index;
+                        isAnimating = false;
+                        page.removeEventListener("transitionend", resetForwardZ);
+                    };
+                    page.addEventListener("transitionend", resetForwardZ);
+                }
+                /* FLIP BACKWARD (Right to Left) */
+                else {
+                    page.style.transform = "rotateY(0deg)";
+                    flipped = false;
+
+                    // Give it a temporary mid-layer z-index so it doesn't instantly 
+                    // overpower or reveal elements behind it incorrectly mid-flight
+                    page.style.zIndex = pages.length + index;
+
+                    // Once it finishes flattening back to the right, reset to original stack
+                    const resetBackwardZ = () => {
+                        page.style.zIndex = pages.length - index;
+                        isAnimating = false;
+                        page.removeEventListener("transitionend", resetBackwardZ);
+                    };
+                    page.addEventListener("transitionend", resetBackwardZ);
+                }
+            });
+        });
+
+        const modal = document.getElementById("contactModal");
+
+        const open = document.getElementById("openModal");
+
+        const close = document.querySelector(".close");
+
+        open.addEventListener("click", (e) => {
+            e.stopPropagation();
+            modal.classList.add("active");
+        });
+
+        close.onclick = () => {
+            modal.classList.remove("active");
+        };
+
+        window.onclick = (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+            }
+        };
+    </script>
+</body>
