@@ -9,32 +9,37 @@ html {
     scroll-behavior: smooth;
 }
 
+html, body{
+    overflow-x: clip;
+}
+
 body {
     position: relative;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background:
-        radial-gradient(circle at top, #312e81, #020617 60%);
-    overflow-x: hidden;
+    background: radial-gradient(circle at top, #312e81, #020617 60%);
+    overflow-x: clip;
     overflow-y: auto;
     perspective: 5000px;
-    padding: 20px
+    padding: 20px;
 }
 
 /* BACKGROUND GLOW */
 body::before {
     content: "";
     position: fixed;
-    inset: auto;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
     width: 700px;
     height: 700px;
-    background:
-        radial-gradient(circle,
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background: radial-gradient(circle,
             rgba(99, 102, 241, .4),
             transparent 70%);
+
     filter: blur(80px);
     animation: bgFloat 8s ease-in-out infinite;
 }
@@ -281,6 +286,8 @@ h2 {
     color: #020617;
     font-weight: 600;
     transition: .35s;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .08);
 }
 
 .card:hover {
@@ -316,7 +323,7 @@ h2 {
 
 /* PARTICLES */
 .particle {
-    position: absolute;
+    position: fixed;
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -428,24 +435,23 @@ h2 {
    DESKTOP / MOBILE LAYOUT
 ========================== */
 
-.desktop-layout {
-    position: relative;
-    z-index: 1;
-    display: block;
-}
-
 .mobile-layout {
     display: none;
+    width: min(100%, 700px);
+    margin: auto;
+    gap: 30px;
 }
 
 .mobile-card {
-    scroll-snap-align: start;
-    background: linear-gradient(145deg, #111827, #1e293b);
+    background: rgba(17, 24, 39, .88);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .08);
     border-radius: 24px;
-    padding: 35px 25px;
+    padding: 35px 28px;
     color: white;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, .35);
-    border: 1px solid rgba(255, 255, 255, .06);
+    text-align: center;
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .35);
     transition: .35s;
 }
 
@@ -461,18 +467,27 @@ h2 {
     color: #cbd5e1;
 }
 
+.mobile-card+.mobile-card {
+    margin-top: 30px;
+}
+
 .mobile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 55px rgba(0, 0, 0, .45);
+    transform: translateY(-8px);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, .45);
+    border-color: rgba(56, 189, 248, .4);
 }
 
 .hero {
-    min-height: 90vh;
+    min-height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+}
+
+.hero .btn {
+    margin-top: 35px;
 }
 
 /* ==========================
@@ -486,7 +501,6 @@ h2 {
         padding: 20px;
         overflow-x: hidden;
         overflow-y: auto;
-        scroll-snap-type: y proximity;
     }
 
     .desktop-layout {
@@ -496,10 +510,8 @@ h2 {
     .mobile-layout {
         display: flex;
         flex-direction: column;
-        gap: 35px;
-        width: min(500px, 100%);
-        margin: auto;
-        padding-bottom: 40px;
+        gap: 25px;
+        width: 100%;
     }
 
     .modal-content {
@@ -509,90 +521,24 @@ h2 {
 
 }
 
-/* ==========================
-   SCROLL REVEAL ANIMATION
-========================== */
-
-.mobile-card {
-    scroll-snap-align: start;
-    opacity: 0;
-    transform: translateY(60px) scale(.96);
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-.mobile-card.show {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-/* ==========================
-   MOBILE CARD DESIGN
-========================== */
-
-.mobile-card {
-    scroll-snap-align: start;
-    background: rgba(17, 24, 39, .75);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, .08);
-    border-radius: 25px;
-    padding: 30px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
-    animation: fadeUp .8s ease both;
-}
-
-.mobile-card h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.mobile-card h2 {
-    color: #38bdf8;
-    margin-bottom: 20px;
-}
-
-.mobile-card p {
-    line-height: 1.8;
-    color: #d1d5db;
-}
-
 .mobile-card .projects {
-    margin-top: 20px;
-}
-
-.mobile-card .card {
-    background: #0f172a;
-    color: white;
-}
-
-.mobile-card .btn {
     margin-top: 25px;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mobile-card .card {
+    margin-bottom: 15px;
 }
 
-/* ==========================
-   MOBILE ANIMATION
-========================== */
+.mobile-card .card:last-child {
+    margin-bottom: 0;
+}
 
-@keyframes fadeUp {
+.mobile-card .skills {
+    margin-top: 25px;
+}
 
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
+.mobile-card .btn {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
 }
