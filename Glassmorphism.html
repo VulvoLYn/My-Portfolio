@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AISAT Login Form</title>
+  <link rel="stylesheet" href="Glassmorphism.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <!--Login Form ito at components-->
+    <form onsubmit="login(event)" id="Login">
+      <h2>Login</h2>
+      <div class="input-field">
+        <input type="text" required id="username">
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" required id="password">
+        <span class="eye-icon" onclick="togglePassword()">👁️</span>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+      </div>
+      <p id="message"></p>
+      <button type="submit">Log In</button>
+
+      <!--Javascript 'to. Dito lahat ng function naka lagay-->
+      <script>
+        function login(event) {
+          event.preventDefault(); // pinipigilan ang pag submit para ma check kung tama ang user name at password
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const loader = document.getElementById("loader");
+          const form = document.getElementById("Login");
+
+          if (username == "admin" && password == "admin") {
+
+            form.style.display = "none";
+            loader.style.display = "flex";
+            form.style.opacity = "0";
+
+            setTimeout(() => {
+              window.location.href = "Carousel.html";
+            }, 2000);
+          }
+          else {
+            alert("Invalid Username or Password");
+          }
+        }
+        function togglePassword() {
+          const password = document.getElementById("password");
+
+          if (password.type == "password") {
+            password.type = "text";
+          }
+          else {
+            password.type = "password";
+          }
+        }
+      </script>
+      <!--End ng Javascript codes-->
+    </form>
+  </div>
+  <div class="loader-section" id="loader">
+    <div class="preview-box">
+      <div class="neon-ring"></div>
+      <h1 class="loading-text">
+        <span class="dot">.</span>
+        <span class="dot">.</span>
+        <span class="dot">.</span>
+      </h1>
+    </div>
+  </div>
+</body>
+
+</html>

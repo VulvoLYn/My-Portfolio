@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="Home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="indicator"></div>
+
+            <h2>AISAT Portal</h2>
+
+            <ul>
+                <li class="menu-item active" data-page="Dashboard"><a href="#"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li class="menu-item" data-page="subjects"><a href="#"><i class="fas fa-book"></i> Subjects</a></li>
+                <li class="menu-item" data-page="grades"><a href="#"><i class="fas fa-chart-line"></i> Grades</a></li>
+                <li class="menu-item" data-page="schedule"><a href=""><i class="fas fa-calendar"></i> Schedule</a></li>
+                <li class="menu-item" data-page="notifications"><a href="#"><i class="fas fa-bell"></i>Notifications</a>
+                </li>
+                <li class="signout"><a href="Carousel.html"><i class="fas fa-sign-out-alt"></i> Sign out</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <!-- Navbar -->
+            <nav class="navbar">
+                <h2>Student Dashboard</h2>
+                <div class="profile">
+                    <img src="" alt="">
+                    <span id="Domeng">Justine P. Sto.Domingo</span>
+                </div>
+            </nav>
+
+            <!-- Cards -->
+            <section id="Dashboard" class="cards">
+
+                <div class="card">
+                    <h3>Subject</h3>
+                    <p>5</p>
+                </div>
+
+                <div class="card">
+                    <h3>Attendance</h3>
+                    <p>95%</p>
+                </div>
+
+                <div class="card">
+                    <h3>GWA</h3>
+                    <p>93.53%</p>
+                </div>
+
+                <div class="card">
+                    <h3>Assignments</h3>
+                    <p>0 Pending</p>
+                </div>
+
+            </section>
+
+            <!-- Schedule -->
+            <section id="schedule" class="page">
+
+                <h3>📅 Thursday Schedule</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                    </tr>
+
+                    <tr>
+                        <td>NC101</td>
+                        <td>8:00 AM - 9:00 AM</td>
+                        <td>RM - V404</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>9:00 AM - 11:00 AM</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>HCI101</td>
+                        <td>11:00 AM - 11:55 AM</td>
+                        <td>RM - V303</td>
+                    </tr>
+
+                    <tr>
+                        <td>GE8-ETH</td>
+                        <td>11:55 AM - 12:50 PM</td>
+                        <td>RM - V303</td>
+                    </tr>
+                </table>
+
+                <h3>📅 Friday Schedule</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                    </tr>
+
+                    <tr>
+                        <td>NC101</td>
+                        <td>9:00 AM - 11:00 AM</td>
+                        <td>RM - V401</td>
+                    </tr>
+
+                    <tr>
+                        <td>GE8-ETH</td>
+                        <td>11:00 AM - 12:50 PM</td>
+                        <td>RM - F306</td>
+                    </tr>
+
+                    <tr>
+                        <td>PD101</td>
+                        <td>1:10 PM - 2:05 PM</td>
+                        <td>RM - F306</td>
+                    </tr>
+                </table>
+
+                <h3>📅 Saturday Schedule</h3>
+                <table>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                    </tr>
+
+                    <tr>
+                        <td>CC106</td>
+                        <td>7:00 AM - 8:00 AM</td>
+                        <td>RM - C302</td>
+                    </tr>
+
+                    <tr>
+                        <td>CC106</td>
+                        <td>8:00 AM - 10:00 AM</td>
+                        <td>C2 - CL1</td>
+                    </tr>
+
+                    <tr>
+                        <td>PD101</td>
+                        <td>10:00 AM - 11:55 AM</td>
+                        <td>RM - E202</td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>11:55 AM - 12:50 PM</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>HCI101</td>
+                        <td>1:10 PM - 2:05 PM</td>
+                        <td>RM - E403</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="subjects" class="page">
+                <h3 class="BC6MD">BC6MD</h3>
+                <table id="SUBJECT">
+                    <tr>
+                        <th>Subjects</th>
+                        <th>Units</th>
+                        <th>Teacher(s)</th>
+                    </tr>
+
+                    <tr>
+                        <td>CC106</td>
+                        <td>3</td>
+                        <td>Mr. Patrick Pacey Lozano</td>
+                    </tr>
+
+                    <tr>
+                        <td>GE8-ETH</td>
+                        <td>3</td>
+                        <td>Ms. Reah Mae Espiritu</td>
+                    </tr>
+
+                    <tr>
+                        <td>HCI101</td>
+                        <td>3</td>
+                        <td>Ms. Christine Jade Lumaban</td>
+                    </tr>
+
+                    <tr>
+                        <td>PD101</td>
+                        <td>3</td>
+                        <td>Mr. Ralph Santos</td>
+                    </tr>
+
+                    <tr>
+                        <td>NC101</td>
+                        <td>3</td>
+                        <td>Mrs. Ma Isabel Bernardo</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section id="grades" class="page">
+                <h3 id="section">BC5MD</h3>
+                <table id="GRADES">
+                    <tr>
+                        <th>Sub. Code</th>
+                        <th>Units</th>
+                        <th>Subject Title</th>
+                        <th>Sem Grade</th>
+                        <th>Numeric Grade</th>
+                        <th>Remarks</th>
+                        <th>Professor</th>
+                    </tr>
+
+                    <tr>
+                        <td>AL 102</td>
+                        <td>3.00</td>
+                        <td>Automata Theory and Formal Language</td>
+                        <td>93.55</td>
+                        <td>1.50</td>
+                        <td>Passed</td>
+                        <td>LODRONIO, RAINIELLE T.</td>
+                    </tr>
+
+                    <tr>
+                        <td>AR 101</td>
+                        <td>3.00</td>
+                        <td>Architecture and Organization</td>
+                        <td>90.91</td>
+                        <td>1.75</td>
+                        <td>Passed</td>
+                        <td>PAZ, ALVIN JOHN M.</td>
+                    </tr>
+
+                    <tr>
+                        <td>CC 105</td>
+                        <td>3.00</td>
+                        <td>Information Management</td>
+                        <td>88.78</td>
+                        <td>2.00</td>
+                        <td>Passed</td>
+                        <td>DELA CRUZ, CARL ADRIAN C.</td>
+                    </tr>
+
+                    <tr>
+                        <td>GE11</td>
+                        <td>3.00</td>
+                        <td>Social Science and Philosophy (GE Elective 2)</td>
+                        <td>90.37</td>
+                        <td>1.75</td>
+                        <td>Passed</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>GE9-TL</td>
+                        <td>3.00</td>
+                        <td>The Life and Works of Rizal</td>
+                        <td>94.36</td>
+                        <td>1.25</td>
+                        <td>Passed</td>
+                        <td>SIERRA, TRISHA JOY C.</td>
+                    </tr>
+
+                    <tr>
+                        <td>IS 101</td>
+                        <td>3.00</td>
+                        <td>Intelligent Systems</td>
+                        <td>87.66</td>
+                        <td>2.00</td>
+                        <td>Passed</td>
+                        <td>DELA CRUZ, CARL ADRIAN C.</td>
+                    </tr>
+
+                    <tr>
+                        <td>IS 103</td>
+                        <td>3.00</td>
+                        <td>IT Infrastructure and Network Technologies</td>
+                        <td>89.12</td>
+                        <td>1.75</td>
+                        <td>Passed</td>
+                        <td>PASTOR, JONATHAN P.</td>
+                    </tr>
+
+                    <tr>
+                        <td>SIA</td>
+                        <td>3.00</td>
+                        <td>Systems Integration</td>
+                        <td>89.07</td>
+                        <td>1.75</td>
+                        <td>Passed</td>
+                        <td>LUMABAN, CHRISTINE JADE R.</td>
+                    </tr>
+                </table>
+
+                <table id="GWA">
+                    <tr>
+                        <td>90.48%</td>
+                    </tr>
+                </table>
+                <h3 id="GENERAL">GENERAL WEIGHTED AVERAGE (GWA)</h3>
+            </section>
+
+            <!-- Announcements -->
+            <section id="notifications" class="page">
+                <h3>📢 Announcements</h3>
+                <p>Finals Examination will start next week.</p>
+                <p>CC106 Project submission deadline: June 25.</p>
+                <p>Spelling Quiz Bee Champion is from Bachelor of Science in Computer Science - Justine P. Sto.Domingo
+                    from BC6MD</p>
+            </section>
+
+            <script>
+                <!--Function ito ng sidebar indicator-->
+                const items = document.querySelectorAll(".menu-item");
+                const indicator = document.querySelector(".indicator");
+
+                function moveIndicator(item) {
+                    indicator.style.top = item.offsetTop + "px";
+                }
+
+                moveIndicator(document.querySelector(".active"));
+
+                items.forEach(item => {
+                    item.addEventListener("click", () => {
+
+                        document.querySelector(".active")
+                            .classList.remove("active");
+
+                        item.classList.add("active");
+
+                        moveIndicator(item);
+                    });
+
+                });
+
+                const menuItems = document.querySelectorAll(".menu-item");
+                const pages = document.querySelectorAll(".page");
+
+                menuItems.forEach(item => {
+                    item.addEventListener("click", function (e) {
+                        e.preventDefault();
+
+                        const target = this.dataset.page;
+
+                        // remove active sa lahat ng pages
+                        pages.forEach(page => {
+                            page.classList.remove("active");
+                        });
+
+                        // add active sa napiling page
+                        document.getElementById(target).classList.add("active");
+                    });
+                });
+            </script>
+        </main>
+    </div>
+</body>
+
+</html>
