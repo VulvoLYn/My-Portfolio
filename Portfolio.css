@@ -287,6 +287,11 @@ h2 {
     gap: 18px;
 }
 
+a {
+    text-decoration: none;
+    color: #020617;
+}
+
 .card {
     padding: 20px;
     border-radius: 16px;
