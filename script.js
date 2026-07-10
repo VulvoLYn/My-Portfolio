@@ -1,8 +1,12 @@
+let currentPage = 0;
+const flippedPages = [];
+
 const pages = document.querySelectorAll(".page");
 let isAnimating = false; // Prevents click spamming
 
 pages.forEach((page, index) => {
     let flipped = false;
+    flippedPages[index] = false;
 
     // Set initial layout stacking
     page.style.zIndex = pages.length - index;
@@ -18,6 +22,8 @@ pages.forEach((page, index) => {
         if (!flipped) {
             page.style.transform = "rotateY(-180deg)";
             flipped = true;
+            flippedPages[index] = true;
+            currentPage = index;
 
             // Wait until the flip finishes to lower the z-index
             const resetForwardZ = () => {
@@ -31,6 +37,8 @@ pages.forEach((page, index) => {
         else {
             page.style.transform = "rotateY(0deg)";
             flipped = false;
+            flippedPages[index] = false;
+            currentPage = index - 1;
 
             // Give it a temporary mid-layer z-index so it doesn't instantly 
             // overpower or reveal elements behind it incorrectly mid-flight
@@ -93,3 +101,12 @@ const observer = new IntersectionObserver((entries) => {
 cards.forEach(card => {
     observer.observe(card);
 });
+
+function goToCarousel(url) {
+    sessionStorage.setItem(
+        "flippedPages",
+        JSON.stringify(flippedPages)
+    );
+
+    window.location.href = "Carousel.html";
+}

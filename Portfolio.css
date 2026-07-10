@@ -555,3 +555,19 @@ a {
     width: 100%;
     margin-top: 18px;
 }
+
+.See-more {
+    padding: 20px;
+    border-radius: 16px;
+    background: white;
+    color: #020617;
+    font-weight: 600;
+    transition: .35s;
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .08);
+    font-size: clamp(1rem, 1vw, 1rem);
+}
+
+.See-more:hover {
+    transform: translateY(-8px) scale(1.03);
+}
